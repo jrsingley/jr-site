@@ -1,0 +1,71 @@
+// fonts
+// $para-font-family: MoristonRegular, Helvetica, Arial, sans-serif;
+// $para-big-font-family: MoristonMedium, Helvetica, Arial, sans-serif;
+// $sub-sub-header-font-family: RBbold, Helvetica, Arial, sans-serif;
+// $sub-header-font-family: TungstenMedium, Helvetica, Arial, sans-serif;
+// $header-font-family: RBmedium, Helvetica, Arial, sans-serif;
+// @mixin para-font() {
+//     font-family: $para-font-family;
+//     line-height: 1.6;
+//     letter-spacing: 0;
+// }
+// @mixin para-big-font() {
+//     font-family: $para-big-font-family;
+//     letter-spacing: 0;
+//     line-height: 1.6;
+// }
+// @mixin sub-sub-header-font() {
+//     font-family: $sub-sub-header-font-family;
+//     letter-spacing: 3.23px;
+// }
+// @mixin sub-header-font() {
+//     font-family: $sub-header-font-family;
+//     letter-spacing: 3.83px;
+//     line-height: 1;
+// }
+// @mixin header-font() {
+//     font-family: $header-font-family;
+//     letter-spacing: 3.23px;
+//     line-height: 1.3;
+// }
+//BUTTON
+// button {
+//     border: 2px solid black;
+//     color: black;
+//     background: transparent;
+//     height: 48px;
+//     width: 219px;
+//     @include header-font();
+//     font-size: 14px;
+//     cursor: pointer;
+//     line-height: 3.4;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 0px;
+//     font-size: 14px;
+//     cursor: pointer;
+//     line-height: 3.4;
+//     padding: 0px;
+//     display: table-cell;
+//     vertical-align: middle;
+//     &:hover {
+//         color: white;
+//         background: black;
+//         border: none;
+//     }
+// }
+
+
+// breakpoints
+@mixin breakpoint($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+    @if $raw-query {
+        $query: if( type-of($raw-query)=='string', unquote($raw-query), inspect($raw-query));
+        @media #{$query} {
+            @content;
+        }
+    }
+}
+
+$breakpoints: ( 'app-max': (min-width: 600px), 'small': (max-width: 800px), 'smallDown': (max-width: 320px), 'smallUp': (min-width: 321px), 'med': (max-width: 1000px), 'medDown': (max-width: 767px), 'medUp': (min-width: 768px), 'biggish': (max-width: 1369px), 'ipadUp': (max-width: 1370px), 'large': (min-width: 1371px), 'largeDown': (max-width: 1023px), 'largeUp': (min-width: 1292px), 'largerUp': (min-width: 1636px), 'largerDown': (max-width: 1635px), 'frigganHuge': (min-width: 1980px));
